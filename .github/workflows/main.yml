@@ -17,15 +17,14 @@ jobs:
 
       - name: 🚚 Get latest code
         uses: actions/checkout@v2.5.0
-      
-      - name: Go to project folder
-        run: cd qwik-app
 
       - name: install dependencies
         run: npm install
+        working-directory: ./qwik-app
 
       - name: Build app
         run: npm run build && npm run build.ssg && npm run ssg
+        working-directory: ./qwik-app
 
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
