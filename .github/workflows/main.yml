@@ -43,13 +43,17 @@ jobs:
           # Upload entire repository
           path: './qwik-app/dist/'
 
-      - name: Deploy with gh-pages
-        run: |
-         git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npx gh-pages -d dist -u "github-actions-bot <support+actions@github.com>"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        working-directory: ./qwik-app
+      # - name: Deploy with gh-pages
+      #   run: |
+      #    git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+      #     npx gh-pages -d dist -u "github-actions-bot <support+actions@github.com>"
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   working-directory: ./qwik-app
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./qwik-app/dist
 
   # Single deploy job since we're just deploying
   # deploy:
