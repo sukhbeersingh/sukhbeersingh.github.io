@@ -19,7 +19,9 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik"
+    "qwik": "qwik",
+    "build.ssg": "vite build --ssr src/entry.ssr.tsx",
+    "ssg": "node server/entry.ssr"
   },
   "devDependencies": {
     "@builder.io/qwik": "0.16.2",
